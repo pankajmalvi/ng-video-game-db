@@ -24,7 +24,20 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.routeSub = this.ActivateRoute.params.subscribe((params: Params) => {
       this.gameId = params['id'];
+      this.getGameDetails(this.gameId);
     });
+  }
+
+  getGameDetails(id: string): void {
+    this.gameSub = this.httpService
+      .getGameDetails(id)
+      .subscribe((gameResp: Game) => {
+        this.game = gameResp;
+
+        setTimeout(() => {
+          this.gameRating = this.game.metacritic;
+        }, 1000);
+      });
   }
 
   getColor(value: number): string {
