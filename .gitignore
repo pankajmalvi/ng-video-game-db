@@ -14,7 +14,7 @@
 chrome-profiler-events*.json
 
 #config Files
-.src/app/config.ts
+./src/app/config.ts
 
 # IDEs and editors
 /.idea
