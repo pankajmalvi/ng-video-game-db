@@ -2,17 +2,21 @@
   <div class="game-banner">
     <img
       class="game-banner-img"
-      src="https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg"
+      src="{{ game.background_image }}"
       alt="background image"
     />
   </div>
   <div class="game-content">
     <div class="details-wrapper">
       <div class="gameheader">
-        <h1 class="game-header-title">GAme Title</h1>
-        <h2 class="game-header-release-date">Release : 1.2.2002</h2>
+        <h1 class="game-header-title">{{ game.name }}</h1>
+        <h2 class="game-header-release-date">
+          Release: {{ game.released | date }}
+        </h2>
         <p class="game-header-genres">
-          <span>RPG</span>
+          <span *ngFor="let genre of game.genres; let last = last">
+            {{ genre.name }}, <span *ngIf="!last">, </span>
+          </span>
         </p>
         <div class="game-guage">
           <mwl-gauge
@@ -25,7 +29,12 @@
             [color]="getColor"
             [animationDuration]="2"
           ></mwl-gauge>
-          <a href="" class="game-gauge-label" target="_blank">Metacritic</a>
+          <a
+            href="{{ game.metacritic_url }}"
+            class="game-gauge-label"
+            target="_blank"
+            >Metacritic</a
+          >
         </div>
       </div>
     </div>
