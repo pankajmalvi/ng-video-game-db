@@ -7,7 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError as observableThrowError } from 'rxjs';
 
-import { config } from './../config';
+import { config } from '../../../config';
 @Injectable()
 export class HttpHeadersInterceptor implements HttpInterceptor {
   constructor() {}
