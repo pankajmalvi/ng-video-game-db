@@ -30,6 +30,7 @@ interface Publishers {
 interface ParentPlatform {
   platform: {
     slug: string;
+    name: any;
   };
 }
 
