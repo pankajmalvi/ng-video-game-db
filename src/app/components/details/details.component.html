@@ -8,17 +8,17 @@
   </div>
   <div class="game-content">
     <div class="details-wrapper">
-      <div class="gameheader">
+      <div class="game-header">
         <h1 class="game-header-title">{{ game.name }}</h1>
         <h2 class="game-header-release-date">
           Release: {{ game.released | date }}
         </h2>
         <p class="game-header-genres">
-          <span *ngFor="let genre of game.genres; let last = last">
-            {{ genre.name }}, <span *ngIf="!last">, </span>
-          </span>
+          <span *ngFor="let genre of game.genres; let last = last"
+            >{{ genre.name }}<span *ngIf="!last">, </span></span
+          >
         </p>
-        <div class="game-guage">
+        <div class="game-gauge">
           <mwl-gauge
             class="two"
             [max]="100"
@@ -28,16 +28,16 @@
             [animated]="true"
             [color]="getColor"
             [animationDuration]="2"
-          ></mwl-gauge>
+          >
+          </mwl-gauge>
           <a
-            href="{{ game.metacritic_url }}"
             class="game-gauge-label"
             target="_blank"
+            href="{{ game.metacritic_url }}"
             >Metacritic</a
           >
         </div>
       </div>
-      <!-- Game Tabs -->
       <app-game-tabs></app-game-tabs>
     </div>
   </div>
